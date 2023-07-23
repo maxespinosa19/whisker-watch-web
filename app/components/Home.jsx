@@ -28,6 +28,7 @@ export default function Home2() {
         <span className="text-black text-1xl font-normal">, share info, and reunite lost pets with their owners while supporting adorable strays. Wagging tails and happy purrs await! </span>
       </div>
 
+
       <div className="w-[331px] h-[74px] left-[514px] top-[361px] absolute text-black text-[40px] font-black tracking-[8px]">(─‿‿─)</div>
       <div className="w-[78px] h-[25px] left-[1166.53px] top-[109px] absolute origin-top-left rotate-[8.12deg] text-center text-black text-8xl font-normal">🐾</div>
       </div>

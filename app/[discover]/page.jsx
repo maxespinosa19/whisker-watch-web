@@ -7,7 +7,7 @@ export default function Discover(){
   return(
     <>
    <NavBar/>
-<AddStrayButton/>
+   <AddStrayButton/>
    <SingleCard/>
    
 
