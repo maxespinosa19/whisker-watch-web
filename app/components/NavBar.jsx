@@ -9,7 +9,7 @@ export default function NavBar(){
     <a href="/" className=" h-14 left-[1206px] top-[18px] absolute text-black text-2xl font-light tracking-[4.80px] hover:underline">signup</a>
 
 <a href="/"className="pr-[34px] pb-[33px] left-[1330px] top-[-9px] absolute justify-start items-center">
-<img className="w-[75px] h-[75px] top-[592px]" src="/images/favicon.png" />
+<img className="w-[75px] h-[75px] top-[-8px] fixed" src="/images/favicon.png" />
 </a>
 
 </nav>
