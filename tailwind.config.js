@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       'animation': {
        
-        'gradient-y':'gradient-y 15s ease infinite',
+        'gradient-y':'gradient-y 10s ease infinite',
         
     },
       'keyframes': {
