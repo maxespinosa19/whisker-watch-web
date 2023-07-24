@@ -13,7 +13,7 @@ export default function Home2() {
       <a
        href="/discover"
        className="block w-[251px] h-[84px] left-[1084px] top-[530px] absolute bg-pink-100 rounded-[50px] border-2 border-black hover:bg-pink-200" >
-       <div className="w-[214px] h-[74px]  text-stone-950 text-[17px] font-light tracking-[8px] flex items-center justify-center pl-9 pt-2">START NOW</div>
+       <div className="w-[214px] h-[74px]  text-stone-950 text-[17px] font-light tracking-[8px] flex items-center  transition ease-in-out duration-200 justify-center pl-9 pt-2">START NOW</div>
       </a>
 
    
