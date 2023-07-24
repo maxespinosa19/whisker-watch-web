@@ -1,4 +1,5 @@
 import NavBar from "./NavBar";
+
 export default function Home2() {
   return (
     <>
@@ -12,7 +13,7 @@ export default function Home2() {
 
       <a
        href="/discover"
-       className="block w-[251px] h-[84px] left-[1084px] top-[530px] absolute bg-pink-100 rounded-[50px] border-2 border-black hover:bg-pink-200" >
+       className="block w-[251px] h-[84px] left-[1084px] top-[590px] absolute bg-pink-100 rounded-[50px] border-2 border-black max-w-xs transition duration-300 ease-in-out hover:scale-110 focus:bg-green-200" >
        <div className="w-[214px] h-[74px]  text-stone-950 text-[17px] font-light tracking-[8px] flex items-center  transition ease-in-out duration-200 justify-center pl-9 pt-2">START NOW</div>
       </a>
 
@@ -22,16 +23,17 @@ export default function Home2() {
       <img className="w-[417px] h-[316px] left-0 top-[57px] absolute rounded-br-[25px]" src="/images/cat-green.png" />
 
       <div className="w-[383px] h-[187px] left-[598px] top-[510px] absolute text-center">
-        <span className="text-green-500 text-1xl font-bold">Discover</span>
-        <span className="text-black text-1xl font-normal"> and track cute cats and lovable stray dogs on our interactive map. Join the </span>
-        <span className="text-pink-300 text-1xl font-bold">community</span>
-        <span className="text-black text-1xl font-normal">, share info, and reunite lost pets with their owners while supporting adorable strays. Wagging tails and happy purrs await! </span>
+        <span className="text-green-500 text-2xl font-normal">Discover</span>
+        <span className="text-black text-2xl font-thin"> and track cute cats and lovable stray dogs on our interactive map. Join the </span>
+        <span className="text-pink-300 text-2xl font-normal">community</span>
+        <span className="text-black text-2xl font-thin">, share info, and reunite lost pets with their owners while supporting adorable strays. Wagging tails and happy purrs await! </span>
       </div>
 
 
       <div className="w-[331px] h-[74px] left-[514px] top-[361px] absolute text-black text-[40px] font-black tracking-[8px]">(─‿‿─)</div>
       <div className="w-[78px] h-[25px] left-[1166.53px] top-[109px] absolute origin-top-left rotate-[8.12deg] text-center text-black text-8xl font-normal">🐾</div>
       </div>
+
     </>
   );
 }

@@ -39,13 +39,15 @@ export default function SingleCard() {
                   Calm
                 </p>
                 <div className="flex items-center flex-wrap">
-                
+          
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+     
     </section>
+    
   );
 }

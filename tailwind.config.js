@@ -27,6 +27,8 @@ module.exports = {
                 'background-position': 'center center'
             },
         },
+      
+
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
