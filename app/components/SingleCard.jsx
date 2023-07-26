@@ -1,38 +1,27 @@
 "use client"
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function singleCard() {
-
-  const [cards, getCardInfo] = useState()
-
+export default function SingleCard({ animalForms }) {
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    const getsingleCard = async () => {
-      const res = await fetch(' http://127.0.0.1:5002/animalForms')
-      const data = await res.json()
-      getCardInfo(data)
-      console.log(data)
-    }
+    const getSingleCard = async () => {
+      try {
+        const res = await fetch('http://127.0.0.1:5002/animalForms');
+        const data = await res.json();
+        setCards(data);
+        console.log(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
-    try {
-      getsingleCard()
-
-
-    } catch (err) {
-      console.error(err)
-    }
-
-  }, [])
-
+    getSingleCard();
+  }, []);
 
   return (
-
     <>
-      {cards?.map((card, i) => (
-
-
-
+      {cards.map((card, i) => (
         <section key={`single-card-${i}`} className="text-gray-600 body-font pt-10 border border-solid rounded-lg shadow-md">
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
@@ -48,26 +37,26 @@ export default function singleCard() {
                       TAG HERE
                     </h2>
                     <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      Name
+                      {card.name}
                     </h1>
                     <p className="leading-relaxed mb-3 text-gray-400">
                       <span className="font-light text-xl text-black">
                         Description:
                       </span>{' '}
-                      Gray and White shorthaired cat
+                      {card.description}
                     </p>
                     <p className="leading-relaxed mb-3 text-gray-400">
                       <span className="font-light text-xl text-black">
                         Last Seen:
                       </span>{' '}
-                      Behind 7/11 at 123 Main Street
+                      {card.location}
                     </p>
                     {/* ^^this is a just for now feature, planning on using maps */}
                     <p className="leading-relaxed mb-3 text-gray-400">
                       <span className="font-light text-xl text-black">
                         Temperament:{' '}
                       </span>
-                      Calm
+                     {card.temperament}
                     </p>
                     <div className="flex items-center flex-wrap">
 
@@ -77,11 +66,8 @@ export default function singleCard() {
               </div>
             </div>
           </div>
-
         </section>
       ))}
     </>
-
-
   );
 }

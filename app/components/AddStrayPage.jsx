@@ -1,9 +1,44 @@
 "use client"
 
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 const loadingSpinnerImg = '/images/cutecat.gif';
 
 export default function AddAnimalPage() {
+  const router = useRouter();
+
+  const addAnimalCard = (e) => {
+    e.preventDefault
+    const newAnimalCard = {
+      name: e.target.name.value,
+      imageURL: e.target.imageURL.value,
+      location: e.target.location.value,
+      temperament: e.target.temperament.value,
+      description: e.target.description.value,
+    }
+    fetch("http://127.0.0.1:5002/animalForms", {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(newAnimalCard),
+    
+    })
+    .then(res => res.json())
+    .then(()=> {
+      e.target.name.value = ""
+      e.target.imageURL.value = ""
+      e.target.location.value = ""
+      e.target.temperament.value = ""
+      e.target.description.value- ""
+
+    })
+    .catch(alert)
+
+    router.push("/")
+  }
+
+  
   const [tag, setTag] = useState("select");
   const [loading, setLoading] = useState(false);
 
@@ -91,7 +126,7 @@ export default function AddAnimalPage() {
       
             <div className="flex w-full my-2 justify-center">
                 <button
-                  onClick=""
+                  onClick={addAnimalCard}
                   type="submit"
                   className="py-3 px-4 mt-[5px] bg-pink-500 hover:bg-pink-600 text-white w-[130px] display flex justify-center transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-full"
                   disabled={loading} 
