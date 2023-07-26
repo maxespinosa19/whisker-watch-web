@@ -8,38 +8,40 @@ export default function AddAnimalPage() {
   const router = useRouter();
 
   const addAnimalCard = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newAnimalCard = {
-      tag: e.target.tag.value,
-      name: e.target.name.value,
-      imageURL: e.target.imageURL.value,
-      location: e.target.location.value,
-      temperament: e.target.temperament.value,
-      description: e.target.description.value,
-    }
+      name: e.target.name.value || "",
+      imageURL: e.target.imageURL?.value || "",
+      location: e.target.location.value || "",
+      temperament: e.target.temperament.value || "",
+      description: e.target.description.value || "",
+    };
+  
     fetch("http://127.0.0.1:5002/animalForms", {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(newAnimalCard),
-    
     })
-    .then(res => res.json())
-    .then(()=> {
-      e.target.tag.value = "";
-      e.target.name.value = "";
-      e.target.imageURL.value = "";
-      e.target.location.value = "";
-      e.target.temperament.value = "";
-      e.target.description.value = "";
-
-    })
-    .catch(alert)
-
-    router.push("/")
-  }
-
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok.');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Response from server:", data);
+        e.target.name.value = "";
+        e.target.imageURL.value = "";
+        e.target.location.value = "";
+        e.target.temperament.value = "";
+        e.target.description.value = "";
+      })
+      .catch((err) => console.error("Error:", err));
+    router.push("/");
+  };
+  
   
   const [tag, setTag] = useState("select");
   const [loading, setLoading] = useState(false);
@@ -103,7 +105,7 @@ export default function AddAnimalPage() {
 
             <div className="flex flex-col mb-2 pb-3">
               <div className=" relative">
-                <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="Name" placeholder="Name" />
+                <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="Name" placeholder="name" />
               </div>
             </div>
 
@@ -115,25 +117,25 @@ export default function AddAnimalPage() {
 
             <div className="flex flex-col mb-2 pb-3">
               <div className="relative">
-                <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" placeholder="Location Last Seen" name="Location" />
+                <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" placeholder="Location Last Seen" name="location" />
               </div>
             </div>
 
             <div className="flex flex-col mb-2 pb-3">
               <div className=" relative">
-                <input type="text" className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="temperament" placeholder="Temperament" />
+                <input type="text" className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="temperament" placeholder="temperament" />
               </div>
             </div>
 
             <div className="flex flex-col mb-6">
               <div className=" relative">
-                <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="Description" placeholder="Description" />
+                <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="Description" placeholder="description" />
               </div>
             </div>
       
             <div className="flex w-full my-2 justify-center">
                 <button
-                  onClick={addAnimalCard}
+                  onSubmit={addAnimalCard}
                   type="submit"
                   className="py-3 px-4 mt-[5px] bg-pink-500 hover:bg-pink-600 text-white w-[130px] display flex justify-center transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-full"
                   disabled={loading} 
