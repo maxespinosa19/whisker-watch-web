@@ -16,6 +16,7 @@ export default function AddAnimalPage() {
       location: e.target.location.value || "",
       temperament: e.target.temperament.value || "",
       description: e.target.description.value || "",
+      tag
     };
 
     setLoading(true);
@@ -34,13 +35,17 @@ export default function AddAnimalPage() {
       e.target.location.value = "";
       e.target.temperament.value = "";
       e.target.description.value = "";
+      tag
       router.push("/");
+      console.log(router)
     })
     .catch(alert)
-    .finally(() => setLoading(false));
+    .then(() => setLoading(false));
+    console.log(newAnimalCard);
   };
   
-  
+
+
   const [tag, setTag] = useState("select");
 
   const handleTagChange = (event) => {
@@ -56,6 +61,7 @@ export default function AddAnimalPage() {
           <div className="p-6 mt-8">
             <form className="add" onSubmit={addAnimalCard}>
               <div className="flex flex-col mb-2 pb-3">
+                
                 <div className="relative">
                   <select
                     className={`rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent ${
