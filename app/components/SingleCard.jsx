@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 
-export default function SingleCard({ animalForms }) {
+export default function SingleCard() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -29,12 +29,12 @@ export default function SingleCard({ animalForms }) {
                 <div className="h-full rounded-3xl bg-white bg-opacity-50 overflow-hidden shadow-md">
                   <img
                     className="lg:h-[300px] md:h-36 w-full object-cover object-center rounded-t-3xl"
-                    src="/images/cat.jpg"
+                    src={card.imageURL}
                     alt="blog"
                   />
                   <div className="p-6">
                     <h2 className="tracking-widest font-medium  mb-3 bg-rose-500 text-white px-4 py-2 rounded-full inline-block">
-                      TAG HERE
+                      {card.tag}
                     </h2>
                     <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                       {card.name}

@@ -8,8 +8,9 @@ export default function AddAnimalPage() {
   const router = useRouter();
 
   const addAnimalCard = (e) => {
-    e.preventDefault
+    e.preventDefault()
     const newAnimalCard = {
+      tag: e.target.tag.value,
       name: e.target.name.value,
       imageURL: e.target.imageURL.value,
       location: e.target.location.value,
@@ -26,11 +27,12 @@ export default function AddAnimalPage() {
     })
     .then(res => res.json())
     .then(()=> {
-      e.target.name.value = ""
-      e.target.imageURL.value = ""
-      e.target.location.value = ""
-      e.target.temperament.value = ""
-      e.target.description.value- ""
+      e.target.tag.value = "";
+      e.target.name.value = "";
+      e.target.imageURL.value = "";
+      e.target.location.value = "";
+      e.target.temperament.value = "";
+      e.target.description.value = "";
 
     })
     .catch(alert)
@@ -43,7 +45,8 @@ export default function AddAnimalPage() {
   const [loading, setLoading] = useState(false);
 
   const handleTagChange = (event) => {
-    setTag(event.target.value);
+    const selectedTag = event.target?.value ?? "select";
+    setTag(selectedTag);
   };
 
   const handleSubmit = (event) => {
@@ -68,31 +71,35 @@ export default function AddAnimalPage() {
             <form className="add" onSubmit={handleSubmit}>
     
 
-          <div className="flex flex-col mb-2 pb-3">
-              <div className="relative">
-                <select
-                  className={`rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent ${
-                    tag === "stray"
-                    ? "text-blue-500"
-                    : tag === "lost"
-                    ? "text-red-700"
-                    : tag === "tnr"
-                    ? "text-green-700"
-                    : tag === "help"
-                    ? "text-red-500"
-                    : "text-red-700"
-                  }`}
-                  value={tag}
-                  onChange={handleTagChange}
-                >
-                  <option value="select">Please select tag</option>
-                  <option value="stray">Stray</option>
-                  <option value="lost">Lost</option>
-                  <option value="tnr">TNR</option>
-                  <option value="help">In Need of Help</option>
-                </select>
-              </div>
-            </div>
+            <div className="flex flex-col mb-2 pb-3">
+  <div className="relative">
+    <select
+      className={`rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent ${
+        tag === "stray"
+          ? "text-blue-500"
+          : tag === "lost"
+          ? "text-red-700"
+          : tag === "tnr"
+          ? "text-green-700"
+          : tag === "help"
+          ? "text-red-500"
+          : "text-red-700"
+      }`}
+      value={tag}
+      onChange={handleTagChange}
+      name="tag" 
+    >
+      <option value="select">Please select tag</option>
+      <option value="stray">Stray</option>
+      <option value="lost">Lost</option>
+      <option value="tnr">TNR</option>
+      <option value="help">In Need of Help</option>
+    </select>
+  </div>
+</div>
+
+
+            
 
             <div className="flex flex-col mb-2 pb-3">
               <div className=" relative">
@@ -102,7 +109,7 @@ export default function AddAnimalPage() {
 
             <div className="flex flex-col mb-2 pb-3">
               <div className=" relative">
-                <input type="text" className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="Image URL" placeholder="Image URL" />
+                <input type="text" className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="imageURL" placeholder="imageURL" />
               </div>
             </div>
 
