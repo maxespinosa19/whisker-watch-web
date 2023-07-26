@@ -1,9 +1,10 @@
 "use client"
-
+import {initializeApp} from "firebase/app";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 const loadingSpinnerImg = '/images/cutecat.gif';
 
+// const app = initializeApp(creds)
 export default function AddAnimalPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -35,7 +36,7 @@ export default function AddAnimalPage() {
       e.target.location.value = "";
       e.target.temperament.value = "";
       e.target.description.value = "";
-      tag
+      e.target.tag.value = "";
       router.push("/");
       console.log(router)
     })

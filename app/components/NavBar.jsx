@@ -4,7 +4,7 @@ export default function NavBar() {
 
       <a href="/" className="text-black text-xl font-light tracking-tight mr-4 hover:underline">home</a>
 
-      <a href="/" className="text-black text-xl font-light tracking-tight mr-4 hover:underline">about</a>
+      <a href="/about" className="text-black text-xl font-light tracking-tight mr-4 hover:underline">about</a>
 
       <a href="/" className="text-black text-xl font-light tracking-tight mr-4 hover:underline">signup</a>
 

@@ -266,7 +266,7 @@ function AddAnimalPage() {
             e.target.location.value = "";
             e.target.temperament.value = "";
             e.target.description.value = "";
-            tag;
+            e.target.tag.value = "";
             router.push("/");
             console.log(router);
         }).catch(alert).then(()=>setLoading(false));
