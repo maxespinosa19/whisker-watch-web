@@ -7,7 +7,7 @@ export default function SingleCard() {
   useEffect(() => {
     const getSingleCard = async () => {
       try {
-        const res = await fetch('http://127.0.0.1:5002/animalForms');
+        const res = await fetch('https://whisker-watch-api.web.app/animalForms');
         const data = await res.json();
         setCards(data);
         console.log(data);
@@ -19,12 +19,27 @@ export default function SingleCard() {
     getSingleCard();
   }, []);
 
+  const getTagColorClass = (tag) => {
+    switch (tag) {
+      case 'stray':
+        return 'bg-blue-200'; 
+      case 'lost':
+        return 'bg-red-500'; 
+      case 'tnr':
+        return 'bg-green-500'; 
+      case 'help':
+        return 'bg-red-500'; 
+      default:
+        return 'bg-rose-500'; 
+    }
+  };
+
   return (
     <>
       {cards.map((card, i) => (
-        <section key={`single-card-${i}`} className="text-gray-600 body-font pt-10 border border-solid rounded-lg shadow-md">
-          <div className="container px-5 py-24 mx-auto">
-            <div className="flex flex-wrap -m-4">
+        <section key={`single-card-${i}`} className="text-gray-600 body-font pt-[150px] border border-solid rounded-lg flex flex-row ">
+          <div className="container mx-auto">
+            <div className="flex flex-wrap">
               <div className="p-4 md:w-1/3">
                 <div className="h-full rounded-3xl bg-white bg-opacity-50 overflow-hidden shadow-md">
                   <img
@@ -33,7 +48,7 @@ export default function SingleCard() {
                     alt="blog"
                   />
                   <div className="p-6">
-                    <h2 className="tracking-widest font-medium  mb-3 bg-rose-500 text-white px-4 py-2 rounded-full inline-block">
+                    <h2 className={`tracking-widest font-medium mb-3 px-4 py-2 rounded-full inline-block ${getTagColorClass(card.tag)}`}>
                       {card.tag}
                     </h2>
                     <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
@@ -59,7 +74,7 @@ export default function SingleCard() {
                      {card.temperament}
                     </p>
                     <div className="flex items-center flex-wrap">
-
+                      {/* Add any additional elements here if needed */}
                     </div>
                   </div>
                 </div>

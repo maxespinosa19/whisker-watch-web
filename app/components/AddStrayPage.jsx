@@ -1,10 +1,10 @@
 "use client"
-import {initializeApp} from "firebase/app";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 const loadingSpinnerImg = '/images/cutecat.gif';
 
-// const app = initializeApp(creds)
+
 export default function AddAnimalPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ export default function AddAnimalPage() {
 
     setLoading(true);
 
-    fetch("http://127.0.0.1:5002/animalForms", {
+    fetch("https://whisker-watch-api.web.app/animalForms", {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -37,7 +37,7 @@ export default function AddAnimalPage() {
       e.target.temperament.value = "";
       e.target.description.value = "";
       e.target.tag.value = "";
-      router.push("/");
+      router.push("/discover");
       console.log(router)
     })
     .catch(alert)
