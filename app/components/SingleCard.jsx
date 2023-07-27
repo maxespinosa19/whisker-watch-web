@@ -35,16 +35,17 @@ export default function SingleCard() {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-7 ">
+   
+    <div className="grid mx-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
       {cards.map((card, i) => (
-        <section key={`single-card-${i}`} className="text-gray-600 body-font rounded-lg">
-          <div className="h-[300px] rounded-3xl bg-white bg-opacity-50 overflow-hidden shadow-md flex mt-[150px]">
+        <section key={`single-card-${i}`} >
+          <div className="h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px]">
             <img
-              className="lg:h-full md:h-36 w-1/2 object-cover rounded-tl-3xl rounded-bl-3xl"
+              className="lg:h-full md:h-36 lg:w-3/4  max-w-[200px] min-w-[200px] object-cover rounded-tl-3xl rounded-bl-3xl"
               src={card.imageURL}
               alt="blog"
             />
-            <div className="p-6">
+            <div className="bg-white bg-opacity-50 p-4 sm:p-6">
               <h2 className={`tracking-widest font-medium mb-3 px-4 py-2 rounded-full inline-block ${getTagColorClass(card.tag)}`}>
                 {card.tag}
               </h2>

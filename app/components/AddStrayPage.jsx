@@ -58,7 +58,7 @@ export default function AddAnimalPage() {
     <>
       <div className="bg-gradient-to-b from-pink-100 to-pink-200 via-pink-300 w-full h-screen mt-0 pt-20 animate-gradient-y">
         <div className="flex flex-col max-w-md px-9 py-8 bg-white bg-opacity-50 rounded-lg shadow sm:px-6 md:px:8 lg:px-10 mx-auto pb-[6px]">
-          <h1 className="text-center text-3xl">Add an Animal</h1>
+          <h1 className="text-center text-rose-800 text-3xl">Add an Animal</h1>
           <div className="p-6 mt-8">
             <form className="add" onSubmit={addAnimalCard}>
               <div className="flex flex-col mb-2 pb-3">

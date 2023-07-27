@@ -6,7 +6,7 @@ export default function NavBar() {
 
       <a href="/about" className="text-black text-xl font-light tracking-tight mr-4 hover:underline">about</a>
 
-      <a href="/" className="text-black text-xl font-light tracking-tight mr-4 hover:underline">signup</a>
+      <a href="/signup" className="text-black text-xl font-light tracking-tight mr-4 hover:underline">signup</a>
 
       <a href="/" className="relative justify-start items-center">
         <img className="w-[45px] h-[45px] relative" src="/images/favicon.png" alt="Logo" />
