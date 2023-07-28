@@ -15,19 +15,14 @@ export default function AddAnimalPage() {
 
   const addAnimalCard = (e) => {
     e.preventDefault();
-  
-
     let url = ""
-if (file){
-    // connect to storage
-    const app = initializeApp(firebaseConfig); // connects to our project
-    const storage = getStorage(app) //connects to storage
-    // create a reference to our file in storage using file name
+
+    if (file){
+    const app = initializeApp(firebaseConfig); 
+    const storage = getStorage(app) 
     const filename = file.name 
     const imageRef = ref(storage, 'photos/' + filename)
-    // use Todd's hack to get the url for that file
     url = `https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2F${encodeURI(filename)}?alt=media`
-    // upload
     uploadBytes(imageRef, file) 
     .catch(alert)
     setUploadedFile(url)
@@ -36,7 +31,7 @@ if (file){
 
     const newAnimalCard = {
       name: e.target.name.value || "",
-      imageURL: url || "", // replace for uploadedFile (DONE)
+      imageURL: url || "",
       location: e.target.location.value || "",
       temperament: e.target.temperament.value || "",
       description: e.target.description.value || "",
