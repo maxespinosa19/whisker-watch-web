@@ -42,10 +42,10 @@ export default function SingleCard() {
           <div className="h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px]">
             <img
               className="lg:h-full md:h-36 lg:w-3/4  max-w-[200px] min-w-[200px] object-cover rounded-tl-3xl rounded-bl-3xl"
-              src={card.imageURL}
+              src={card.imageURL || "https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2Fphoto_not_available.webp?alt=media&"}
               alt="blog"
             />
-            <div className="bg-white bg-opacity-50 p-4 sm:p-6">
+            <div className="bg-white w-full bg-opacity-50 p-4 sm:p-6">
               <h2 className={`tracking-widest font-medium mb-3 px-4 py-2 rounded-full inline-block ${getTagColorClass(card.tag)}`}>
                 {card.tag}
               </h2>

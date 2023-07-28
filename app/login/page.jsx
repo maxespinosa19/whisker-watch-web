@@ -21,7 +21,7 @@ export default function login(){
                                 </path>
                             </svg>
                         </span>
-                        <input type="text" id="design-login-email" className=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email"/>
+                        <input type="text" id="design-login-email" className=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Email"/>
                         </div>
                     </div>
                     <div className="flex flex-col pt-4 mb-12">
@@ -32,7 +32,7 @@ export default function login(){
                                     </path>
                                 </svg>
                             </span>
-                            <input type="password" id="design-login-password" className=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Password"/>
+                            <input type="password" id="design-login-password" className=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Password"/>
                             </div>
                         </div>
                         <button type="submit" className="w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in rounded-xl bg-[#c94b58] shadow-md hover:text-black hover:bg-rose-800 focus:outline-none focus:ring-2">

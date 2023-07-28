@@ -2,18 +2,41 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {getStorage, ref, uploadBytes} from 'firebase/storage'
+import { initializeApp } from "firebase/app";
 const loadingSpinnerImg = '/images/cutecat.gif';
 
 
 export default function AddAnimalPage() {
+  const [file, setFile] = useState()
+  const [uploadedFile, setUploadedFile] = useState()
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const addAnimalCard = (e) => {
     e.preventDefault();
+  
+
+    let url = ""
+if (file){
+    // connect to storage
+    const app = initializeApp(firebaseConfig); // connects to our project
+    const storage = getStorage(app) //connects to storage
+    // create a reference to our file in storage using file name
+    const filename = file.name 
+    const imageRef = ref(storage, 'photos/' + filename)
+    // use Todd's hack to get the url for that file
+    url = `https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2F${encodeURI(filename)}?alt=media`
+    // upload
+    uploadBytes(imageRef, file) 
+    .catch(alert)
+    setUploadedFile(url)
+}
+ 
+
     const newAnimalCard = {
       name: e.target.name.value || "",
-      imageURL: e.target.imageURL?.value || "",
+      imageURL: url || "", // replace for uploadedFile (DONE)
       location: e.target.location.value || "",
       temperament: e.target.temperament.value || "",
       description: e.target.description.value || "",
@@ -45,6 +68,14 @@ export default function AddAnimalPage() {
     console.log(newAnimalCard);
   };
   
+  const firebaseConfig = {
+    apiKey: "AIzaSyCO2LVRNnGZJR-f1Id79oFrkzw3ZB4I3No",
+    authDomain: "whisker-watch-api.firebaseapp.com",
+    projectId: "whisker-watch-api",
+    storageBucket: "whisker-watch-api.appspot.com",
+    messagingSenderId: "267334187889",
+    appId: "1:267334187889:web:cf86a53f6c044479f994d0"
+  };
 
 
   const [tag, setTag] = useState("select");
@@ -52,7 +83,18 @@ export default function AddAnimalPage() {
   const handleTagChange = (event) => {
     const selectedTag = event.target?.value || "select";
     setTag(selectedTag);
+
   };
+
+  const handleFile = (e) => {
+    console.log(e.target.files[0])
+    setFile(e.target.files[0])
+
+
+
+  }
+
+
 
   return (
     <>
@@ -97,9 +139,17 @@ export default function AddAnimalPage() {
 
               <div className="flex flex-col mb-2 pb-3">
                 <div className="relative">
-                  <input type="text" className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="imageURL" placeholder="imageURL" />
+                  <input type="file" accept="image/*"  onChange={handleFile}className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="imageURL" placeholder="imageURL"   />
+                  {file &&
+                <div className="w-[20px] rounded">
+              <img src = {URL.createObjectURL(file)} className="object-cover"/>
+             </div>
+                }
+               
+              
                 </div>
               </div>
+              
 
               <div className="flex flex-col mb-2 pb-3">
                 <div className="relative">
