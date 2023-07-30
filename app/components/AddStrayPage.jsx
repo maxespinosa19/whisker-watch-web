@@ -111,6 +111,8 @@ export default function AddAnimalPage() {
                       ? "text-green-700"
                       : tag === "help"
                       ? "text-red-500"
+                      : tag === "safe"
+                      ? "text-green-400"
                       : "text-red-700"
                     }`}
                     value={tag}
@@ -122,6 +124,7 @@ export default function AddAnimalPage() {
                     <option value="lost">Lost</option>
                     <option value="tnr">TNR</option>
                     <option value="help">In Need of Help</option>
+                    <option value="safe">Safe</option>
                   </select>
                 </div>
               </div>

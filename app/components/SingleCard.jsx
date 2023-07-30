@@ -29,6 +29,8 @@ export default function SingleCard() {
         return 'bg-green-500'; 
       case 'help':
         return 'bg-red-500'; 
+      case 'safe':
+        return 'bg-green-300'; 
       default:
         return 'bg-rose-500'; 
     }
@@ -41,7 +43,7 @@ export default function SingleCard() {
         <section key={`single-card-${i}`} >
           <div className="h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px]">
             <img
-              className="lg:h-full md:h-36 lg:w-3/4  max-w-[200px] min-w-[200px] object-cover rounded-tl-3xl rounded-bl-3xl"
+              className="lg:h-full md:h-full md: w-1/2 lg:w-3/4  max-w-[200px] min-w-[200px] object-cover rounded-tl-3xl rounded-bl-3xl"
               src={card.imageURL || "https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2Fphoto_not_available.webp?alt=media&"}
               alt="blog"
             />
