@@ -265,7 +265,7 @@ function SingleCard() {
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         const getSingleCard = async ()=>{
             try {
-                const res = await fetch("http://127.0.0.1:5002/animalForms");
+                const res = await fetch("https://whisker-watch-api.web.app/animalForms");
                 const data = await res.json();
                 setCards(data);
                 console.log(data);
@@ -275,78 +275,85 @@ function SingleCard() {
         };
         getSingleCard();
     }, []);
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    const getTagColorClass = (tag)=>{
+        switch(tag){
+            case "stray":
+                return "bg-blue-200";
+            case "lost":
+                return "bg-red-400";
+            case "tnr":
+                return "bg-green-500";
+            case "help":
+                return "bg-red-500";
+            case "safe":
+                return "bg-green-300";
+            default:
+                return "bg-rose-500";
+        }
+    };
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+        className: "grid mx-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ",
         children: cards.map((card, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
-                className: "text-gray-600 body-font pt-10 border border-solid rounded-lg shadow-md",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                    className: "container px-5 py-24 mx-auto",
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        className: "flex flex-wrap -m-4",
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                            className: "p-4 md:w-1/3",
-                            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                className: "h-full rounded-3xl bg-white bg-opacity-50 overflow-hidden shadow-md",
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                        className: "lg:h-[300px] md:h-36 w-full object-cover object-center rounded-t-3xl",
-                                        src: card.imageURL,
-                                        alt: "blog"
-                                    }),
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                        className: "p-6",
-                                        children: [
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
-                                                className: "tracking-widest font-medium  mb-3 bg-rose-500 text-white px-4 py-2 rounded-full inline-block",
-                                                children: card.tag
-                                            }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
-                                                className: "title-font text-lg font-medium text-gray-900 mb-3",
-                                                children: card.name
-                                            }),
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                                className: "leading-relaxed mb-3 text-gray-400",
-                                                children: [
-                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                                                        className: "font-light text-xl text-black",
-                                                        children: "Description:"
-                                                    }),
-                                                    " ",
-                                                    card.description
-                                                ]
-                                            }),
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                                className: "leading-relaxed mb-3 text-gray-400",
-                                                children: [
-                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                                                        className: "font-light text-xl text-black",
-                                                        children: "Last Seen:"
-                                                    }),
-                                                    " ",
-                                                    card.location
-                                                ]
-                                            }),
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                                className: "leading-relaxed mb-3 text-gray-400",
-                                                children: [
-                                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-                                                        className: "font-light text-xl text-black",
-                                                        children: [
-                                                            "Temperament:",
-                                                            " "
-                                                        ]
-                                                    }),
-                                                    card.temperament
-                                                ]
-                                            }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                className: "flex items-center flex-wrap"
-                                            })
-                                        ]
-                                    })
-                                ]
-                            })
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px]",
+                    children: [
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                            className: "lg:h-full md:h-full md: w-1/2 lg:w-3/4  max-w-[200px] min-w-[200px] object-cover rounded-tl-3xl rounded-bl-3xl",
+                            src: card.imageURL || "https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2Fphoto_not_available.webp?alt=media&",
+                            alt: "blog"
+                        }),
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: "bg-white w-full bg-opacity-50 p-4 sm:p-6",
+                            children: [
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                                    className: `tracking-widest font-medium mb-3 px-4 py-2 rounded-full inline-block ${getTagColorClass(card.tag)}`,
+                                    children: card.tag
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
+                                    className: "title-font text-lg font-medium text-gray-900 mb-3",
+                                    children: card.name
+                                }),
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                                    className: "leading-relaxed mb-3 text-gray-400",
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                            className: "font-light text-xl text-black",
+                                            children: "Description:"
+                                        }),
+                                        " ",
+                                        card.description
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                                    className: "leading-relaxed mb-3 text-gray-400",
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                            className: "font-light text-xl text-black",
+                                            children: "Last Seen:"
+                                        }),
+                                        " ",
+                                        card.location
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                                    className: "leading-relaxed mb-3 text-gray-400",
+                                    children: [
+                                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+                                            className: "font-light text-xl text-black ",
+                                            children: [
+                                                "Temperament:",
+                                                " "
+                                            ]
+                                        }),
+                                        card.temperament
+                                    ]
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                    className: "flex items-center flex-wrap"
+                                })
+                            ]
                         })
-                    })
+                    ]
                 })
             }, `single-card-${i}`))
     });

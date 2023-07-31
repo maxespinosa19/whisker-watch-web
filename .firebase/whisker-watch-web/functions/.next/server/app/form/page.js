@@ -124,6 +124,22 @@ module.exports = require("next/dist/shared/lib/server-inserted-html");
 
 /***/ }),
 
+/***/ 3685:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ 5687:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
 /***/ 1017:
 /***/ ((module) => {
 
@@ -132,11 +148,35 @@ module.exports = require("path");
 
 /***/ }),
 
+/***/ 5477:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("punycode");
+
+/***/ }),
+
+/***/ 2781:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
 /***/ 7310:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("url");
+
+/***/ }),
+
+/***/ 9796:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
 
 /***/ }),
 
@@ -235,26 +275,44 @@ var jsx_runtime_ = __webpack_require__(6786);
 var react_ = __webpack_require__(8038);
 // EXTERNAL MODULE: ./node_modules/next/navigation.js
 var navigation = __webpack_require__(9483);
+// EXTERNAL MODULE: ./node_modules/firebase/storage/dist/index.mjs + 1 modules
+var dist = __webpack_require__(8120);
+// EXTERNAL MODULE: ./node_modules/firebase/app/dist/index.mjs
+var app_dist = __webpack_require__(1288);
 ;// CONCATENATED MODULE: ./app/components/AddStrayPage.jsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
+
+
 const loadingSpinnerImg = "/images/cutecat.gif";
 function AddAnimalPage() {
+    const [file, setFile] = (0,react_.useState)();
+    const [uploadedFile, setUploadedFile] = (0,react_.useState)();
     const router = (0,navigation.useRouter)();
     const [loading, setLoading] = (0,react_.useState)(false);
     const addAnimalCard = (e)=>{
         e.preventDefault();
+        let url = "";
+        if (file) {
+            const app = (0,app_dist/* initializeApp */.ZF)(firebaseConfig);
+            const storage = (0,dist/* getStorage */.cF)(app);
+            const filename = file.name;
+            const imageRef = (0,dist/* ref */.iH)(storage, "photos/" + filename);
+            url = `https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2F${encodeURI(filename)}?alt=media`;
+            (0,dist/* uploadBytes */.KV)(imageRef, file).catch(alert);
+            setUploadedFile(url);
+        }
         const newAnimalCard = {
             name: e.target.name.value || "",
-            imageURL: e.target.imageURL?.value || "",
+            imageURL: url || "",
             location: e.target.location.value || "",
             temperament: e.target.temperament.value || "",
             description: e.target.description.value || "",
             tag
         };
         setLoading(true);
-        fetch("http://127.0.0.1:5002/animalForms", {
+        fetch("https://whisker-watch-api.web.app/animalForms", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -267,15 +325,27 @@ function AddAnimalPage() {
             e.target.temperament.value = "";
             e.target.description.value = "";
             e.target.tag.value = "";
-            router.push("/");
+            router.push("/discover");
             console.log(router);
         }).catch(alert).then(()=>setLoading(false));
         console.log(newAnimalCard);
+    };
+    const firebaseConfig = {
+        apiKey: "AIzaSyCO2LVRNnGZJR-f1Id79oFrkzw3ZB4I3No",
+        authDomain: "whisker-watch-api.firebaseapp.com",
+        projectId: "whisker-watch-api",
+        storageBucket: "whisker-watch-api.appspot.com",
+        messagingSenderId: "267334187889",
+        appId: "1:267334187889:web:cf86a53f6c044479f994d0"
     };
     const [tag, setTag] = (0,react_.useState)("select");
     const handleTagChange = (event)=>{
         const selectedTag = event.target?.value || "select";
         setTag(selectedTag);
+    };
+    const handleFile = (e)=>{
+        console.log(e.target.files[0]);
+        setFile(e.target.files[0]);
     };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
@@ -284,7 +354,7 @@ function AddAnimalPage() {
                 className: "flex flex-col max-w-md px-9 py-8 bg-white bg-opacity-50 rounded-lg shadow sm:px-6 md:px:8 lg:px-10 mx-auto pb-[6px]",
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx("h1", {
-                        className: "text-center text-3xl",
+                        className: "text-center text-rose-800 text-3xl",
                         children: "Add an Animal"
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
@@ -298,7 +368,7 @@ function AddAnimalPage() {
                                     children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                         className: "relative",
                                         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("select", {
-                                            className: `rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent ${tag === "stray" ? "text-blue-500" : tag === "lost" ? "text-red-700" : tag === "tnr" ? "text-green-700" : tag === "help" ? "text-red-500" : "text-red-700"}`,
+                                            className: `rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent ${tag === "stray" ? "text-blue-500" : tag === "lost" ? "text-red-700" : tag === "tnr" ? "text-green-700" : tag === "help" ? "text-red-500" : tag === "safe" ? "text-green-400" : "text-red-700"}`,
                                             value: tag,
                                             onChange: handleTagChange,
                                             name: "tag",
@@ -322,6 +392,10 @@ function AddAnimalPage() {
                                                 /*#__PURE__*/ jsx_runtime_.jsx("option", {
                                                     value: "help",
                                                     children: "In Need of Help"
+                                                }),
+                                                /*#__PURE__*/ jsx_runtime_.jsx("option", {
+                                                    value: "safe",
+                                                    children: "Safe"
                                                 })
                                             ]
                                         })
@@ -341,14 +415,25 @@ function AddAnimalPage() {
                                 }),
                                 /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                     className: "flex flex-col mb-2 pb-3",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                         className: "relative",
-                                        children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                                            type: "text",
-                                            className: "rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent",
-                                            name: "imageURL",
-                                            placeholder: "imageURL"
-                                        })
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                                type: "file",
+                                                accept: "image/*",
+                                                onChange: handleFile,
+                                                className: "rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent",
+                                                name: "imageURL",
+                                                placeholder: "imageURL"
+                                            }),
+                                            file && /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: "w-[20px] rounded",
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                    src: URL.createObjectURL(file),
+                                                    className: "object-cover"
+                                                })
+                                            })
+                                        ]
                                     })
                                 }),
                                 /*#__PURE__*/ jsx_runtime_.jsx("div", {
@@ -421,12 +506,12 @@ function NavBar() {
                 children: "home"
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                href: "/",
+                href: "/about",
                 className: "text-black text-xl font-light tracking-tight mr-4 hover:underline",
                 children: "about"
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                href: "/",
+                href: "/signup",
                 className: "text-black text-xl font-light tracking-tight mr-4 hover:underline",
                 children: "signup"
             }),
@@ -484,14 +569,6 @@ const __default__ = proxy.default;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
 
-/***/ }),
-
-/***/ 9483:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__(4595)
-
-
 /***/ })
 
 };
@@ -501,7 +578,7 @@ module.exports = __webpack_require__(4595)
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [697,331,690], () => (__webpack_exec__(3847)));
+var __webpack_exports__ = __webpack_require__.X(0, [697,331,566,690], () => (__webpack_exec__(3847)));
 module.exports = __webpack_exports__;
 
 })();

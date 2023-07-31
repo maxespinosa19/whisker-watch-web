@@ -22,12 +22,12 @@ function NavBar() {
                 children: "home"
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                href: "/",
+                href: "/about",
                 className: "text-black text-xl font-light tracking-tight mr-4 hover:underline",
                 children: "about"
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                href: "/",
+                href: "/signup",
                 className: "text-black text-xl font-light tracking-tight mr-4 hover:underline",
                 children: "signup"
             }),
