@@ -84,40 +84,34 @@ export default function AddAnimalPage() {
   const handleFile = (e) => {
     console.log(e.target.files[0])
     setFile(e.target.files[0])
-
-
-
   }
-
-
 
   return (
     <>
       <div className="bg-gradient-to-b from-pink-100 to-pink-200 via-pink-300 w-full h-screen mt-0 pt-20 animate-gradient-y">
         <div className="flex flex-col max-w-md px-9 py-8 bg-white bg-opacity-50 rounded-lg shadow sm:px-6 md:px:8 lg:px-10 mx-auto pb-[6px]">
           <h1 className="text-center text-rose-800 text-3xl">Add an Animal</h1>
-          <div className="p-6 mt-8">
+          <div className="p-2 mt-8">
             <form className="add" onSubmit={addAnimalCard}>
               <div className="flex flex-col mb-2 pb-3">
-                
                 <div className="relative">
                   <select
                     className={`rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent ${
                       tag === "stray"
-                      ? "text-blue-500"
-                      : tag === "lost"
-                      ? "text-red-700"
-                      : tag === "tnr"
-                      ? "text-green-700"
-                      : tag === "help"
-                      ? "text-red-500"
-                      : tag === "safe"
-                      ? "text-green-400"
-                      : "text-red-700"
+                        ? "text-blue-500"
+                        : tag === "lost"
+                          ? "text-red-700"
+                          : tag === "tnr"
+                            ? "text-green-700"
+                            : tag === "help"
+                              ? "text-red-500"
+                              : tag === "safe"
+                                ? "text-green-400"
+                                : "text-red-700"
                     }`}
                     value={tag}
                     onChange={handleTagChange}
-                    name="tag" 
+                    name="tag"
                   >
                     <option value="select">Please select tag</option>
                     <option value="stray">Stray</option>
@@ -137,17 +131,14 @@ export default function AddAnimalPage() {
 
               <div className="flex flex-col mb-2 pb-3">
                 <div className="relative">
-                  <input type="file" accept="image/*"  onChange={handleFile}className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="imageURL" placeholder="imageURL"   />
-                  {file &&
-                <div className="w-[20px] rounded">
-              <img src = {URL.createObjectURL(file)} className="object-cover"/>
-             </div>
-                }
-               
-              
+                  <input type="file" accept="image/*" onChange={handleFile} className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="imageURL" placeholder="imageURL" />
+                  {file && (
+                    <div className="w-[20px] rounded absolute right-4 top-4">
+                      <img src={URL.createObjectURL(file)} className="object-cover" />
+                    </div>
+                  )}
                 </div>
               </div>
-              
 
               <div className="flex flex-col mb-2 pb-3">
                 <div className="relative">
@@ -171,7 +162,7 @@ export default function AddAnimalPage() {
                 <button
                   type="submit"
                   className="py-3 px-4 mt-[5px] bg-pink-500 hover:bg-pink-600 text-white w-[130px] display flex justify-center transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-full"
-                  disabled={loading} 
+                  disabled={loading}
                 >
                   {loading ? (
                     <img className="transition ease-in-out 3s" src={loadingSpinnerImg} alt="Loading..." />

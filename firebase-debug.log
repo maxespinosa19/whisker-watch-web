@@ -1,78 +1,31 @@
-[debug] [2023-07-26T03:26:44.128Z] ----------------------------------------------------------------------
-[debug] [2023-07-26T03:26:44.129Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
-[debug] [2023-07-26T03:26:44.130Z] CLI Version:   12.4.0
-[debug] [2023-07-26T03:26:44.130Z] Platform:      darwin
-[debug] [2023-07-26T03:26:44.130Z] Node Version:  v18.16.0
-[debug] [2023-07-26T03:26:44.131Z] Time:          Tue Jul 25 2023 23:26:44 GMT-0400 (Eastern Daylight Time)
-[debug] [2023-07-26T03:26:44.131Z] ----------------------------------------------------------------------
+[debug] [2023-07-31T13:08:17.993Z] ----------------------------------------------------------------------
+[debug] [2023-07-31T13:08:17.994Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --force
+[debug] [2023-07-31T13:08:17.994Z] CLI Version:   12.4.0
+[debug] [2023-07-31T13:08:17.995Z] Platform:      darwin
+[debug] [2023-07-31T13:08:17.995Z] Node Version:  v18.16.0
+[debug] [2023-07-31T13:08:17.996Z] Time:          Mon Jul 31 2023 09:08:17 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-07-31T13:08:17.996Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2023-07-26T03:26:44.217Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-07-26T03:26:44.218Z] > authorizing via signed-in user (maxespinosaschool@gmail.com)
-[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
-[debug] [2023-07-26T03:26:44.487Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[warn] ⚠  hosting: Hosting Emulator unable to start on port 5000, starting on 5002 instead. {"metadata":{"emulator":{"name":"hosting"},"message":"Hosting Emulator unable to start on port 5000, starting on 5002 instead."}}
-[debug] [2023-07-26T03:26:44.488Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2023-07-26T03:26:44.488Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2023-07-26T03:26:44.497Z] [hub] writing locator at /var/folders/xn/wv2f1yr97r54rfd6zwkw68280000gn/T/hub-whisker-watch-web.json
-[debug] [2023-07-26T03:26:44.507Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web [none]
-[debug] [2023-07-26T03:26:44.827Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web 200
-[debug] [2023-07-26T03:26:44.827Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web {"projectId":"whisker-watch-web","projectNumber":"373398058377","displayName":"whisker-watch-web","name":"projects/whisker-watch-web","resources":{"hostingSite":"whisker-watch-web"},"state":"ACTIVE","etag":"1_63daa812-1ea6-425c-b459-b9ba7411cab4"}
-[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
-[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
-[debug] [2023-07-26T03:26:47.886Z] Received signal SIGINT (Ctrl-C) 1
-[info]  
-[info] i  emulators: Received SIGINT (Ctrl-C) for the first time. Starting a clean shutdown. 
-[info] i  emulators: Please wait for a clean shutdown or send the SIGINT (Ctrl-C) signal again to stop right now. 
-[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
-[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
-[warn] ⚠  hub: Error stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Error stopping emulator hub"}}
-[debug] [2023-07-26T03:26:48.007Z] SyntaxError: Unexpected end of JSON input
-    at JSON.parse (<anonymous>)
-    at findDependency (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/utils.js:150:23)
-    at discover (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/vite/index.js:41:71)
-    at /usr/local/lib/node_modules/firebase-tools/lib/frameworks/vite/index.js:34:69
-    at discover (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:45:38)
-    at async prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:183:25)
-    at async Object.startAll (/usr/local/lib/node_modules/firebase-tools/lib/emulator/controller.js:298:9)
-    at async /usr/local/lib/node_modules/firebase-tools/lib/commands/emulators-start.js:32:43
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2023-07-31T12:58:25.747Z] ----------------------------------------------------------------------
-[debug] [2023-07-31T12:58:25.749Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
-[debug] [2023-07-31T12:58:25.749Z] CLI Version:   12.4.0
-[debug] [2023-07-31T12:58:25.749Z] Platform:      darwin
-[debug] [2023-07-31T12:58:25.750Z] Node Version:  v18.16.0
-[debug] [2023-07-31T12:58:25.755Z] Time:          Mon Jul 31 2023 08:58:25 GMT-0400 (Eastern Daylight Time)
-[debug] [2023-07-31T12:58:25.755Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2023-07-31T12:58:25.757Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2023-07-31T12:58:25.841Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-07-31T12:58:25.842Z] > authorizing via signed-in user (maxespinosaschool@gmail.com)
-[debug] [2023-07-31T12:58:25.842Z] [iam] checking project whisker-watch-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2023-07-31T12:58:25.842Z] > refreshing access token with scopes: []
-[debug] [2023-07-31T12:58:25.843Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2023-07-31T12:58:25.843Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2023-07-31T12:58:25.966Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2023-07-31T12:58:25.966Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2023-07-31T12:58:26.010Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2023-07-31T12:58:26.010Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2023-07-31T12:58:26.022Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions [none]
-[debug] [2023-07-31T12:58:26.022Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions x-goog-quota-user=projects/whisker-watch-web
-[debug] [2023-07-31T12:58:26.022Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T12:58:26.601Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions 200
-[debug] [2023-07-31T12:58:26.601Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T12:58:26.603Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web [none]
-[debug] [2023-07-31T12:58:26.945Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web 200
-[debug] [2023-07-31T12:58:26.946Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web {"projectId":"whisker-watch-web","projectNumber":"373398058377","displayName":"whisker-watch-web","name":"projects/whisker-watch-web","resources":{"hostingSite":"whisker-watch-web"},"state":"ACTIVE","etag":"1_2a575e5d-aec3-45a4-86e9-485f002d941b"}
-[debug] [2023-07-31T12:58:29.065Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites pageToken=&pageSize=10
-[debug] [2023-07-31T12:58:30.122Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T12:58:30.122Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T12:58:30.123Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 
-[debug] [2023-07-31T12:58:30.540Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T12:58:30.540Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T12:58:30.541Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config [none]
-[debug] [2023-07-31T12:58:31.246Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config 200
-[debug] [2023-07-31T12:58:31.246Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config {"projectId":"whisker-watch-web","appId":"1:373398058377:web:265cc6daf1912d3dc75d58","storageBucket":"whisker-watch-web.appspot.com","apiKey":"AIzaSyB4PEnIx71D9JvicemtcjkuJuCcqwGmDIg","authDomain":"whisker-watch-web.firebaseapp.com","messagingSenderId":"373398058377"}
+[debug] [2023-07-31T13:08:18.046Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-31T13:08:18.046Z] > authorizing via signed-in user (maxespinosaschool@gmail.com)
+[debug] [2023-07-31T13:08:18.046Z] [iam] checking project whisker-watch-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-07-31T13:08:18.048Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions [none]
+[debug] [2023-07-31T13:08:18.048Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions x-goog-quota-user=projects/whisker-watch-web
+[debug] [2023-07-31T13:08:18.048Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-07-31T13:08:18.287Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions 200
+[debug] [2023-07-31T13:08:18.288Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-07-31T13:08:18.289Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web [none]
+[debug] [2023-07-31T13:08:18.473Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web 200
+[debug] [2023-07-31T13:08:18.474Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web {"projectId":"whisker-watch-web","projectNumber":"373398058377","displayName":"whisker-watch-web","name":"projects/whisker-watch-web","resources":{"hostingSite":"whisker-watch-web"},"state":"ACTIVE","etag":"1_2a575e5d-aec3-45a4-86e9-485f002d941b"}
+[debug] [2023-07-31T13:08:20.476Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites pageToken=&pageSize=10
+[debug] [2023-07-31T13:08:20.840Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
+[debug] [2023-07-31T13:08:20.841Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-07-31T13:08:20.842Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 
+[debug] [2023-07-31T13:08:21.333Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
+[debug] [2023-07-31T13:08:21.333Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-07-31T13:08:21.333Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config [none]
+[debug] [2023-07-31T13:08:21.722Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config 200
+[debug] [2023-07-31T13:08:21.722Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config {"projectId":"whisker-watch-web","appId":"1:373398058377:web:265cc6daf1912d3dc75d58","storageBucket":"whisker-watch-web.appspot.com","apiKey":"AIzaSyB4PEnIx71D9JvicemtcjkuJuCcqwGmDIg","authDomain":"whisker-watch-web.firebaseapp.com","messagingSenderId":"373398058377"}
 [info] 
    Thank you for trying our early preview of Next.js support on Firebase Hosting.
    During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
@@ -86,41 +39,41 @@
 [info] Building a Cloud Function to run this application. This is needed due to:
 [info]  • non-static component /[discover]/page
 [info] 
-[debug] [2023-07-31T12:59:03.775Z] Error: Command failed: npm i --omit dev --no-audit
+[debug] [2023-07-31T13:08:39.554Z] Error: Command failed: npm i --omit dev --no-audit
     at checkExecSyncError (node:child_process:885:11)
     at execSync (node:child_process:957:15)
     at prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:362:42)
     at async deploy (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:55:13)
 [error] 
 [error] Error: An unexpected error has occurred.
-[debug] [2023-07-31T12:59:30.577Z] ----------------------------------------------------------------------
-[debug] [2023-07-31T12:59:30.578Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
-[debug] [2023-07-31T12:59:30.579Z] CLI Version:   12.4.0
-[debug] [2023-07-31T12:59:30.579Z] Platform:      darwin
-[debug] [2023-07-31T12:59:30.579Z] Node Version:  v18.16.0
-[debug] [2023-07-31T12:59:30.580Z] Time:          Mon Jul 31 2023 08:59:30 GMT-0400 (Eastern Daylight Time)
-[debug] [2023-07-31T12:59:30.580Z] ----------------------------------------------------------------------
+[debug] [2023-07-31T13:30:58.068Z] ----------------------------------------------------------------------
+[debug] [2023-07-31T13:30:58.070Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-07-31T13:30:58.070Z] CLI Version:   12.4.0
+[debug] [2023-07-31T13:30:58.070Z] Platform:      darwin
+[debug] [2023-07-31T13:30:58.070Z] Node Version:  v18.16.0
+[debug] [2023-07-31T13:30:58.074Z] Time:          Mon Jul 31 2023 09:30:58 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-07-31T13:30:58.074Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2023-07-31T12:59:30.631Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-07-31T12:59:30.631Z] > authorizing via signed-in user (maxespinosaschool@gmail.com)
-[debug] [2023-07-31T12:59:30.631Z] [iam] checking project whisker-watch-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2023-07-31T12:59:30.633Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions [none]
-[debug] [2023-07-31T12:59:30.633Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions x-goog-quota-user=projects/whisker-watch-web
-[debug] [2023-07-31T12:59:30.633Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T12:59:30.874Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions 200
-[debug] [2023-07-31T12:59:30.874Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T12:59:30.876Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web [none]
-[debug] [2023-07-31T12:59:32.087Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web 200
-[debug] [2023-07-31T12:59:32.087Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web {"projectId":"whisker-watch-web","projectNumber":"373398058377","displayName":"whisker-watch-web","name":"projects/whisker-watch-web","resources":{"hostingSite":"whisker-watch-web"},"state":"ACTIVE","etag":"1_2a575e5d-aec3-45a4-86e9-485f002d941b"}
-[debug] [2023-07-31T12:59:34.025Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites pageToken=&pageSize=10
-[debug] [2023-07-31T12:59:34.948Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T12:59:34.949Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T12:59:34.950Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 
-[debug] [2023-07-31T12:59:35.453Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T12:59:35.453Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T12:59:35.454Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config [none]
-[debug] [2023-07-31T12:59:35.805Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config 200
-[debug] [2023-07-31T12:59:35.805Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config {"projectId":"whisker-watch-web","appId":"1:373398058377:web:265cc6daf1912d3dc75d58","storageBucket":"whisker-watch-web.appspot.com","apiKey":"AIzaSyB4PEnIx71D9JvicemtcjkuJuCcqwGmDIg","authDomain":"whisker-watch-web.firebaseapp.com","messagingSenderId":"373398058377"}
+[debug] [2023-07-31T13:30:58.123Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-31T13:30:58.123Z] > authorizing via signed-in user (maxespinosaschool@gmail.com)
+[debug] [2023-07-31T13:30:58.124Z] [iam] checking project whisker-watch-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-07-31T13:30:58.125Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions [none]
+[debug] [2023-07-31T13:30:58.125Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions x-goog-quota-user=projects/whisker-watch-web
+[debug] [2023-07-31T13:30:58.125Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-07-31T13:30:58.378Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions 200
+[debug] [2023-07-31T13:30:58.378Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-07-31T13:30:58.379Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web [none]
+[debug] [2023-07-31T13:30:58.731Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web 200
+[debug] [2023-07-31T13:30:58.731Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web {"projectId":"whisker-watch-web","projectNumber":"373398058377","displayName":"whisker-watch-web","name":"projects/whisker-watch-web","resources":{"hostingSite":"whisker-watch-web"},"state":"ACTIVE","etag":"1_2a575e5d-aec3-45a4-86e9-485f002d941b"}
+[debug] [2023-07-31T13:31:00.727Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites pageToken=&pageSize=10
+[debug] [2023-07-31T13:31:01.185Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
+[debug] [2023-07-31T13:31:01.185Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-07-31T13:31:01.187Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 
+[debug] [2023-07-31T13:31:01.594Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
+[debug] [2023-07-31T13:31:01.594Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-07-31T13:31:01.595Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config [none]
+[debug] [2023-07-31T13:31:01.995Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config 200
+[debug] [2023-07-31T13:31:01.996Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config {"projectId":"whisker-watch-web","appId":"1:373398058377:web:265cc6daf1912d3dc75d58","storageBucket":"whisker-watch-web.appspot.com","apiKey":"AIzaSyB4PEnIx71D9JvicemtcjkuJuCcqwGmDIg","authDomain":"whisker-watch-web.firebaseapp.com","messagingSenderId":"373398058377"}
 [info] 
    Thank you for trying our early preview of Next.js support on Firebase Hosting.
    During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
@@ -134,103 +87,7 @@
 [info] Building a Cloud Function to run this application. This is needed due to:
 [info]  • non-static component /[discover]/page
 [info] 
-[debug] [2023-07-31T12:59:53.557Z] Error: Command failed: npm i --omit dev --no-audit
-    at checkExecSyncError (node:child_process:885:11)
-    at execSync (node:child_process:957:15)
-    at prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:362:42)
-    at async deploy (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:55:13)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2023-07-31T13:02:48.958Z] ----------------------------------------------------------------------
-[debug] [2023-07-31T13:02:48.960Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
-[debug] [2023-07-31T13:02:48.960Z] CLI Version:   12.4.0
-[debug] [2023-07-31T13:02:48.961Z] Platform:      darwin
-[debug] [2023-07-31T13:02:48.961Z] Node Version:  v18.16.0
-[debug] [2023-07-31T13:02:48.962Z] Time:          Mon Jul 31 2023 09:02:48 GMT-0400 (Eastern Daylight Time)
-[debug] [2023-07-31T13:02:48.962Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2023-07-31T13:02:49.012Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-07-31T13:02:49.013Z] > authorizing via signed-in user (maxespinosaschool@gmail.com)
-[debug] [2023-07-31T13:02:49.013Z] [iam] checking project whisker-watch-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2023-07-31T13:02:49.014Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions [none]
-[debug] [2023-07-31T13:02:49.014Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions x-goog-quota-user=projects/whisker-watch-web
-[debug] [2023-07-31T13:02:49.015Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T13:02:49.231Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions 200
-[debug] [2023-07-31T13:02:49.231Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T13:02:49.232Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web [none]
-[debug] [2023-07-31T13:02:49.605Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web 200
-[debug] [2023-07-31T13:02:49.606Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web {"projectId":"whisker-watch-web","projectNumber":"373398058377","displayName":"whisker-watch-web","name":"projects/whisker-watch-web","resources":{"hostingSite":"whisker-watch-web"},"state":"ACTIVE","etag":"1_2a575e5d-aec3-45a4-86e9-485f002d941b"}
-[debug] [2023-07-31T13:02:51.550Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites pageToken=&pageSize=10
-[debug] [2023-07-31T13:02:52.679Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T13:02:52.679Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T13:02:52.680Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 
-[debug] [2023-07-31T13:02:53.408Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T13:02:53.409Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T13:02:53.410Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config [none]
-[debug] [2023-07-31T13:02:54.217Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config 200
-[debug] [2023-07-31T13:02:54.218Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config {"projectId":"whisker-watch-web","appId":"1:373398058377:web:265cc6daf1912d3dc75d58","storageBucket":"whisker-watch-web.appspot.com","apiKey":"AIzaSyB4PEnIx71D9JvicemtcjkuJuCcqwGmDIg","authDomain":"whisker-watch-web.firebaseapp.com","messagingSenderId":"373398058377"}
-[info] 
-   Thank you for trying our early preview of Next.js support on Firebase Hosting.
-   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
-
-   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
-   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
-   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
-
-   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
-
-[info] Building a Cloud Function to run this application. This is needed due to:
-[info]  • non-static component /[discover]/page
-[info] 
-[debug] [2023-07-31T13:03:12.580Z] Error: Command failed: npm i --omit dev --no-audit
-    at checkExecSyncError (node:child_process:885:11)
-    at execSync (node:child_process:957:15)
-    at prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:362:42)
-    at async deploy (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:55:13)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2023-07-31T13:05:03.049Z] ----------------------------------------------------------------------
-[debug] [2023-07-31T13:05:03.051Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --force
-[debug] [2023-07-31T13:05:03.051Z] CLI Version:   12.4.0
-[debug] [2023-07-31T13:05:03.052Z] Platform:      darwin
-[debug] [2023-07-31T13:05:03.052Z] Node Version:  v18.16.0
-[debug] [2023-07-31T13:05:03.058Z] Time:          Mon Jul 31 2023 09:05:03 GMT-0400 (Eastern Daylight Time)
-[debug] [2023-07-31T13:05:03.058Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2023-07-31T13:05:03.109Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-07-31T13:05:03.109Z] > authorizing via signed-in user (maxespinosaschool@gmail.com)
-[debug] [2023-07-31T13:05:03.109Z] [iam] checking project whisker-watch-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2023-07-31T13:05:03.111Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions [none]
-[debug] [2023-07-31T13:05:03.111Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions x-goog-quota-user=projects/whisker-watch-web
-[debug] [2023-07-31T13:05:03.111Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T13:05:03.434Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions 200
-[debug] [2023-07-31T13:05:03.434Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/whisker-watch-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2023-07-31T13:05:03.435Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web [none]
-[debug] [2023-07-31T13:05:04.065Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web 200
-[debug] [2023-07-31T13:05:04.065Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web {"projectId":"whisker-watch-web","projectNumber":"373398058377","displayName":"whisker-watch-web","name":"projects/whisker-watch-web","resources":{"hostingSite":"whisker-watch-web"},"state":"ACTIVE","etag":"1_2a575e5d-aec3-45a4-86e9-485f002d941b"}
-[debug] [2023-07-31T13:05:06.483Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites pageToken=&pageSize=10
-[debug] [2023-07-31T13:05:06.926Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T13:05:06.926Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T13:05:06.927Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 
-[debug] [2023-07-31T13:05:07.283Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites 200
-[debug] [2023-07-31T13:05:07.284Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/whisker-watch-web/sites {"sites":[{"name":"projects/whisker-watch-web/sites/whisker-watch-web","defaultUrl":"https://whisker-watch-web.web.app","type":"DEFAULT_SITE"}]}
-[debug] [2023-07-31T13:05:07.284Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config [none]
-[debug] [2023-07-31T13:05:07.682Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config 200
-[debug] [2023-07-31T13:05:07.683Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/whisker-watch-web/webApps/-/config {"projectId":"whisker-watch-web","appId":"1:373398058377:web:265cc6daf1912d3dc75d58","storageBucket":"whisker-watch-web.appspot.com","apiKey":"AIzaSyB4PEnIx71D9JvicemtcjkuJuCcqwGmDIg","authDomain":"whisker-watch-web.firebaseapp.com","messagingSenderId":"373398058377"}
-[info] 
-   Thank you for trying our early preview of Next.js support on Firebase Hosting.
-   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
-
-   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
-   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
-   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
-
-   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
-
-[info] Building a Cloud Function to run this application. This is needed due to:
-[info]  • non-static component /[discover]/page
-[info] 
-[debug] [2023-07-31T13:05:33.711Z] Error: Command failed: npm i --omit dev --no-audit
+[debug] [2023-07-31T13:31:22.225Z] Error: Command failed: npm i --omit dev --no-audit
     at checkExecSyncError (node:child_process:885:11)
     at execSync (node:child_process:957:15)
     at prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:362:42)

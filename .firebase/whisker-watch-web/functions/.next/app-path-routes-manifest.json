@@ -2,8 +2,8 @@
   "/page": "/",
   "/favicon.ico/route": "/favicon.ico",
   "/[discover]/page": "/[discover]",
-  "/form/page": "/form",
   "/about/page": "/about",
+  "/form/page": "/form",
   "/login/page": "/login",
   "/signup/page": "/signup"
 }

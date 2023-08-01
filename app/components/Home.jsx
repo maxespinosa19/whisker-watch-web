@@ -20,7 +20,7 @@ export default function Home2() {
    
       <img className="w-[467px] h-[350px] left-[152px] top-[1017.63px] absolute origin-top-left rotate-[-50.55deg] rounded-[100px]" src="/images/catpink.png" />
       <img className="w-[601.09px] h-[386.46px] left-[-112.56px] top-[531.39px] absolute origin-top-left rotate-[-7deg] rounded-tl-[500px] rounded-tr-[100px] rounded-bl-[100px] rounded-br-[100px]" src="/images/catpink.png" />
-      <img className="w-[417px] h-[316px] left-0 top-[57px] absolute rounded-br-[25px]" src="/images/cat-green.png" />
+      <img className="w-[417px]  h-[316px] left-0 top-[57px] absolute rounded-br-[25px]" src="/images/cat-green.png" />
 
       <div className="w-[383px] h-[187px] left-[598px] top-[510px] absolute text-center">
         <span className="text-green-500 text-2xl font-normal">Discover</span>
