@@ -32,7 +32,7 @@ export default function Home2() {
       <div className="sm:hidden w-[120px] h-[196px] left-[16px] top-[120px] absolute text-black text-2xl font-normal tracking-[12px]">WHISKER</div>
       <div className="sm:hidden w-[200px] h-[70px] left-[20px] top-[135px] absolute text-pink-300 text-4xl font-light tracking-[25px]">_____</div>
       <div className="sm:hidden h-[163px] left-[63px] top-[181px] absolute text-black text-2xl font-normal tracking-[12px]">WATCH</div>
-      <div className="sm:hidden w-[500px] h-[300px] top-[400px] bg-pink-200 absolute"></div>
+      <div className="sm:hidden w-[500px] h-[500px] top-[400px] bg-pink-200 absolute"></div>
 
       <div className="sm:hidden text-pink-400 left-[8px] top-[460px] text-9xl absolute font-normal">{'{'}</div>
       <div className="sm:hidden text-green-400 right-[8px] top-[460px] text-9xl absolute font-normal">{'}'}</div>
