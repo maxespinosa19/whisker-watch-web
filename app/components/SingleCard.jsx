@@ -112,6 +112,11 @@ const SkeletonCard = () => (
         <div className="w-3/4 h-4 bg-green-200 mb-4"></div>
         <div className="w-2/4 h-4 bg-green-200 mb-4"></div>
         <div className="w-2/4 h-4 bg-green-200 mb-4"></div>
+        <img
+        src="./images/catwalkt.gif"
+        className="w-1/2"
+      />
+        
       </div>
     </div>
   </section>
