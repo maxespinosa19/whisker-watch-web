@@ -46,7 +46,7 @@ export default function Home2() {
 
       <div className="w-[383px] h-[187px] left-[598px] top-[510px] absolute text-center">
         <span className="text-green-500 text-2xl font-normal">Discover</span>
-        <span className="text-black text-2xl font-thin"> and track cute cats and lovable stray dogs on our interactive map. Join the </span>
+        <span className="text-black text-2xl font-thin"> and track cute cats and lovable stray dogs! Join the </span>
         <span className="text-pink-300 text-2xl font-normal">community</span>
         <span className="text-black text-2xl font-thin">, share info, and reunite lost pets with their owners while supporting adorable strays. Wagging tails and happy purrs await! </span>
       </div>
