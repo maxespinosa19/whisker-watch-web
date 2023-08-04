@@ -28,26 +28,25 @@ export default function AddAnimalPage() {
     setUploadedFile(url)
 }
  
-
     const newAnimalCard = {
       name: e.target.name.value || "",
-      imageURL: url || "",
+      imageURL: url || "", 
       location: e.target.location.value || "",
       temperament: e.target.temperament.value || "",
       description: e.target.description.value || "",
       tag
     };
 
-    setLoading(true);
+    setLoading(true); // move to top 
 
-    fetch("https://whisker-watch-api.web.app/animalForms", {
-      method: 'POST',
+    fetch("https://whisker-watch-api.web.app/animalForms", { // one
+      method: 'POST', 
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(newAnimalCard),
-    })
-    .then(res => res.json())
+    }) // command
+    .then(res => res.json()) //unneeded
     .then(() => {
       e.target.name.value = "";
       e.target.imageURL.value = "";
@@ -59,7 +58,7 @@ export default function AddAnimalPage() {
       console.log(router)
     })
     .catch(alert)
-    .then(() => setLoading(false));
+    .finally(() => setLoading(false)); //.finally good
     console.log(newAnimalCard);
   };
   
@@ -76,7 +75,7 @@ export default function AddAnimalPage() {
   const [tag, setTag] = useState("select");
 
   const handleTagChange = (event) => {
-    const selectedTag = event.target?.value || "select";
+    const selectedTag = event.target?.value || "select"; // ? to ensure code isnt null or undefined
     setTag(selectedTag);
 
   };

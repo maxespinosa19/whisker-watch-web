@@ -21,6 +21,8 @@ export default function SingleCard() {
     getSingleCard();
   }, []);
 
+
+
   const getTagColorClass = (tag) => {
     switch (tag) {
       case 'stray':
@@ -34,9 +36,12 @@ export default function SingleCard() {
       case 'safe':
         return 'bg-green-300';
       default:
-        return 'bg-rose-500';
+        return 'bg-rose-400';
     }
+
+    
   };
+  
 
   return (
     <div className="grid mx-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
