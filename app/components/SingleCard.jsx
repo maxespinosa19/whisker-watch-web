@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function SingleCard() {
   const [cards, setCards] = useState([]);
@@ -83,13 +84,25 @@ export default function SingleCard() {
                   </span>{' '}
                   {card.description}
                 </p>
+
+
                 <p className="leading-relaxed mb-3 text-gray-400">
                   <span className="font-light text-xl text-black">
                     Last Seen:
                   </span>{' '}
-                  {card.location}
+                  <Link href={{
+                    pathname: '/map',
+                    query: { address: card.address, city: card.city, state: card.state, zip: card.zip, location: card.location } //passes info to the next page
+                  }}> 
+                  <img src="/images/favicon.png" className='w-[30px] mr-2'/>
+                 <h1>View on Map</h1> 
+                  </Link>
+            
                 </p>
-                {/* ^^this is a just for now feature, planning on using maps */}
+
+
+
+                
                 <p className="leading-relaxed mb-3 text-gray-400">
                   <span className="font-light text-xl text-black ">
                     Temperament:{' '}

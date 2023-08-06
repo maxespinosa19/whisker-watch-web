@@ -31,10 +31,14 @@ export default function AddAnimalPage() {
     const newAnimalCard = {
       name: e.target.name.value || "",
       imageURL: url || "", 
-      location: e.target.location.value || "",
+      location: location || "",
       temperament: e.target.temperament.value || "",
       description: e.target.description.value || "",
-      tag
+      tag,
+      address: e.target.address.value || "",
+      city: e.target.city.value || "",
+      state: e.target.state.value || "",
+      zip: e.target.zip.value || "",
     };
 
     setLoading(true); // move to top 
@@ -50,8 +54,8 @@ export default function AddAnimalPage() {
     .then(() => {
       e.target.name.value = "";
       e.target.imageURL.value = "";
-      e.target.location.value = "";
       e.target.temperament.value = "";
+      setLocation("");
       e.target.description.value = "";
       e.target.tag.value = "";
       router.push("/discover");
@@ -85,10 +89,23 @@ export default function AddAnimalPage() {
     setFile(e.target.files[0])
   }
 
+  const [location, setLocation] = useState('')
+
+  const getLocationCoordinates = async () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLocation(`@${position.coords.latitude},${position.coords.longitude}`)
+        console.log(`@${position.coords.latitude},${position.coords.longitude}`)
+      });
+    } else {
+      return alert("Not supported by this browser.")
+    }
+  }
+
   return (
     <>
-      <div className="bg-gradient-to-b from-pink-100 to-pink-200 via-pink-300 w-full h-screen mt-0 pt-20 animate-gradient-y">
-        <div className="flex flex-col max-w-md px-9 py-8 bg-white bg-opacity-50 rounded-lg shadow sm:px-6 md:px:8 lg:px-10 mx-auto pb-[6px]">
+      <div className="bg-gradient-to-b from-pink-100 to-pink-200 via-pink-300 w-full  mt-0 pt-16 animate-gradient-y">
+        <div className="flex flex-col max-w-md px-4 py-4 bg-white bg-opacity-50 rounded-lg shadow sm:px-6 md:px:8 lg:px-10 mx-auto pb-[6px]">
           <h1 className="text-center text-rose-800 text-3xl">Add an Animal</h1>
           <div className="p-2 mt-8">
             <form className="add" onSubmit={addAnimalCard}>
@@ -124,7 +141,7 @@ export default function AddAnimalPage() {
 
               <div className="flex flex-col mb-2 pb-3">
                 <div className="relative">
-                  <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="name" placeholder="name" />
+                  <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="name" placeholder="Name" />
                 </div>
               </div>
 
@@ -139,21 +156,82 @@ export default function AddAnimalPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col mb-2 pb-3">
+              {/* <div className="flex flex-col mb-2 pb-3">
                 <div className="relative">
                   <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" placeholder="Location Last Seen" name="location" />
                 </div>
+              </div> */}
+
+              <h2 className="flex flex-row justify-center text-pink-400 font-bold pb-3" >- Location last seen -</h2>
+
+              <div className="flex flex-row mb-2 pb-3 justify-center ">
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent"
+                    name="address"
+                    placeholder="Address"
+                  />
+                </div>
               </div>
 
+              <div className="flex flex-row mb-2 pb-3 w-3/4 mx-auto">
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="rounded-lg border-transparent pr-4 flex-1 appearance-none border border-gray-300 w-full py-2 px-4  bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent"
+                    name="city"
+                    placeholder="City"
+                  />
+                </div>
+                </div>
+
+                <div className="flex flex-row mb-2 pb-3 w-3/4 mx-auto">
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="rounded-lg border-transparent pr-4 flex-1 appearance-none border border-gray-300 w-full py-2 px-4  bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent"
+                    name="state"
+                    placeholder="State"
+                  />
+                </div>
+
+
+                <div className="relative ml-4">
+                  <input
+                    type="text"
+                    className="rounded-lg border-transparent pr-4 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent"
+                    name="zip"
+                    placeholder="Zip Code"
+                  />
+                </div>
+              </div>
+
+              <h2 className="flex flex-row justify-center text-pink-400 font-bold pb-3" > - or - </h2>
+
+              <div className="flex flex-row mb-2 pb-3 w-3/4 mx-auto justify-center">
+                <div className="relative">
+                  <button
+                    type="button" 
+                    className="rounded-lg bg-pink-500 hover:bg-pink-400  text-white border-transparent pr-4 flex-1 appearance-none border border-gray-300 w-full py-2 px-4  placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent"
+                    onClick={getLocationCoordinates}
+                  >
+                    Use my current location
+                  </button>
+                </div>
+              </div>
+
+
+              
               <div className="flex flex-col mb-2 pb-3">
                 <div className=" relative">
-                  <input type="text" className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="temperament" placeholder="temperament" />
+                  <input type="text" className="rounded-lg border-transparent flex appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="temperament" placeholder="Temperament" />
                 </div>
               </div>
 
               <div className="flex flex-col mb-6">
                 <div className=" relative">
-                  <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="description" placeholder="description" />
+                  <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" name="description" placeholder="Description" />
                 </div>
               </div>
 
