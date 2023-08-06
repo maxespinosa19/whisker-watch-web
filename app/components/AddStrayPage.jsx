@@ -47,9 +47,9 @@ export default function AddAnimalPage() {
     fetch("https://whisker-watch-api.web.app/animalForms", {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json',
+        'Content-type': 'application/json', 
       },
-      body: JSON.stringify(newAnimalCard),
+      body: JSON.stringify(newAnimalCard),  
     })
       .then(res => res.json())
       .then(() => {
