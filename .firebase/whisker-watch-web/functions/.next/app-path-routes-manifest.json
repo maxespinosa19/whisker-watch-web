@@ -1,0 +1,10 @@
+{
+  "/page": "/",
+  "/favicon.ico/route": "/favicon.ico",
+  "/about/page": "/about",
+  "/discover/page": "/discover",
+  "/form/page": "/form",
+  "/login/page": "/login",
+  "/signup/page": "/signup",
+  "/map/page": "/map"
+}
