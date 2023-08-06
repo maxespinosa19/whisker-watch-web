@@ -1,36 +1,37 @@
 "use client"
-
-import { useRouter } from "next/navigation";
 import { useState } from "react";
-import {getStorage, ref, uploadBytes} from 'firebase/storage'
+import { useRouter } from "next/navigation";
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { initializeApp } from "firebase/app";
-const loadingSpinnerImg = '/images/cutecat.gif';
 
+const loadingSpinnerImg = '/images/cutecat.gif';
+const loadingSpinnerImg2 = '/images/dogrunning.gif';
 
 export default function AddAnimalPage() {
-  const [file, setFile] = useState()
-  const [uploadedFile, setUploadedFile] = useState()
+  const [file, setFile] = useState();
+  const [uploadedFile, setUploadedFile] = useState();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [loadingLocation, setLoadingLocation] = useState(false);
+  const [location, setLocation] = useState('');
 
   const addAnimalCard = (e) => {
     e.preventDefault();
-    let url = ""
+    let url = "";
 
-    if (file){
-    const app = initializeApp(firebaseConfig); 
-    const storage = getStorage(app) 
-    const filename = file.name 
-    const imageRef = ref(storage, 'photos/' + filename)
-    url = `https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2F${encodeURI(filename)}?alt=media`
-    uploadBytes(imageRef, file) 
-    .catch(alert)
-    setUploadedFile(url)
-}
- 
+    if (file) {
+      const app = initializeApp(firebaseConfig);
+      const storage = getStorage(app);
+      const filename = file.name;
+      const imageRef = ref(storage, 'photos/' + filename);
+      url = `https://firebasestorage.googleapis.com/v0/b/whisker-watch-api.appspot.com/o/photos%2F${encodeURI(filename)}?alt=media`;
+      uploadBytes(imageRef, file).catch(alert);
+      setUploadedFile(url);
+    }
+
     const newAnimalCard = {
       name: e.target.name.value || "",
-      imageURL: url || "", 
+      imageURL: url || "",
       location: location || "",
       temperament: e.target.temperament.value || "",
       description: e.target.description.value || "",
@@ -41,31 +42,29 @@ export default function AddAnimalPage() {
       zip: e.target.zip.value || "",
     };
 
-    setLoading(true); // move to top 
+    setLoading(true);
 
-    fetch("https://whisker-watch-api.web.app/animalForms", { // one
-      method: 'POST', 
+    fetch("https://whisker-watch-api.web.app/animalForms", {
+      method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(newAnimalCard),
-    }) // command
-    .then(res => res.json()) //unneeded
-    .then(() => {
-      e.target.name.value = "";
-      e.target.imageURL.value = "";
-      e.target.temperament.value = "";
-      setLocation("");
-      e.target.description.value = "";
-      e.target.tag.value = "";
-      router.push("/discover");
-      console.log(router)
     })
-    .catch(alert)
-    .finally(() => setLoading(false)); //.finally good
-    console.log(newAnimalCard);
+      .then(res => res.json())
+      .then(() => {
+        e.target.name.value = "";
+        e.target.imageURL.value = "";
+        e.target.temperament.value = "";
+        setLocation("");
+        e.target.description.value = "";
+        e.target.tag.value = "";
+        router.push("/discover");
+      })
+      .catch(alert)
+      .finally(() => setLoading(false));
   };
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyCO2LVRNnGZJR-f1Id79oFrkzw3ZB4I3No",
     authDomain: "whisker-watch-api.firebaseapp.com",
@@ -79,26 +78,25 @@ export default function AddAnimalPage() {
   const [tag, setTag] = useState("select");
 
   const handleTagChange = (event) => {
-    const selectedTag = event.target?.value || "select"; // ? to ensure code isnt null or undefined
+    const selectedTag = event.target?.value || "select";
     setTag(selectedTag);
-
   };
 
   const handleFile = (e) => {
-    console.log(e.target.files[0])
-    setFile(e.target.files[0])
+    setFile(e.target.files[0]);
   }
 
-  const [location, setLocation] = useState('')
-
   const getLocationCoordinates = async () => {
+    setLoadingLocation(true);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        setLocation(`@${position.coords.latitude},${position.coords.longitude}`)
-        console.log(`@${position.coords.latitude},${position.coords.longitude}`)
+        setLocation(`@${position.coords.latitude},${position.coords.longitude}`);
+        setLoadingLocation(false);
+        console.log(`@${position.coords.latitude},${position.coords.longitude}`);
       });
     } else {
-      return alert("Not supported by this browser.")
+      setLoadingLocation(false);
+      alert("Not supported by this browser.");
     }
   }
 
@@ -106,7 +104,7 @@ export default function AddAnimalPage() {
     <>
       <div className="bg-gradient-to-b from-pink-100 to-pink-200 via-pink-300 w-full  mt-0 pt-16 animate-gradient-y">
         <div className="flex flex-col max-w-md px-4 py-4 bg-white bg-opacity-50 rounded-lg shadow sm:px-6 md:px:8 lg:px-10 mx-auto pb-[6px]">
-          <h1 className="text-center text-rose-800 text-3xl">Add an Animal</h1>
+          <h1 className="text-center text-pink-600 text-3xl">Add an Animal</h1>
           <div className="p-2 mt-8">
             <form className="add" onSubmit={addAnimalCard}>
               <div className="flex flex-col mb-2 pb-3">
@@ -123,7 +121,7 @@ export default function AddAnimalPage() {
                               ? "text-red-500"
                               : tag === "safe"
                                 ? "text-green-400"
-                                : "text-red-700"
+                                : "text-pink-600"
                     }`}
                     value={tag}
                     onChange={handleTagChange}
@@ -164,7 +162,7 @@ export default function AddAnimalPage() {
 
               <h2 className="flex flex-row justify-center text-pink-400 font-bold pb-3" >- Location last seen -</h2>
 
-              <div className="flex flex-row mb-2 pb-3 justify-center ">
+              <div className="flex flex-row mb-2 pl-[30px] pb-3 w-3/4 mx-auto ">
                 <div className="relative">
                   <input
                     type="text"
@@ -175,7 +173,7 @@ export default function AddAnimalPage() {
                 </div>
               </div>
 
-              <div className="flex flex-row mb-2 pb-3 w-3/4 mx-auto">
+              <div className="flex flex-row mb-2 pl-[30px] pb-3 w-3/4 mx-auto">
                 <div className="relative">
                   <input
                     type="text"
@@ -212,11 +210,21 @@ export default function AddAnimalPage() {
               <div className="flex flex-row mb-2 pb-3 w-3/4 mx-auto justify-center">
                 <div className="relative">
                   <button
-                    type="button" 
-                    className="rounded-lg bg-pink-500 hover:bg-pink-400  text-white border-transparent pr-4 flex-1 appearance-none border border-gray-300 w-full py-2 px-4  placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent"
+                    type="button"
+                    className={`rounded-full bg-pink-500 hover:bg-pink-400 focus:bg-pink-500 text-white border-transparent pr-4 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent ${loadingLocation ? 'pointer-events-none opacity-50' : ''}`}
                     onClick={getLocationCoordinates}
+                    disabled={loadingLocation}
                   >
-                    Use my current location
+                    {loadingLocation ? (
+                      <img
+                        src={loadingSpinnerImg2}
+                        alt="Loading..."
+                        className="w-[80px] h-[50px] mx-auto"
+                     
+                      />
+                    ) : (
+                      "Use my current location"
+                    )}
                   </button>
                 </div>
               </div>
@@ -253,5 +261,5 @@ export default function AddAnimalPage() {
         </div>
       </div>
     </>
-  );
+  ); 
 }

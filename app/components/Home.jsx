@@ -13,8 +13,8 @@ export default function Home2() {
 
       <a
        href="/discover"
-       className="block w-[251px] h-[84px] left-[1084px] top-[590px] absolute bg-pink-100 rounded-[50px] border-2 border-black max-w-xs transition duration-300 ease-in-out hover:scale-110 focus:bg-green-200" >
-       <div className="w-[214px] h-[74px]  text-stone-950 text-[17px] font-light tracking-[8px] flex items-center  transition ease-in-out duration-200 justify-center pl-9 pt-2">START NOW</div>
+       className="block w-[251px] h-[84px] left-[1084px] top-[590px] absolute bg-pink-100 rounded-[50px] border-2 border-black max-w-xs transition duration-300 ease-in-out hover:scale-110 focus:bg-purple-700 " >
+       <div className="w-[214px] h-[74px]  text-stone-950 text-[17px] font-light tracking-[8px] flex items-center  transition ease-in-out duration-200 justify-center pl-9 pt-2 focus:text-white">START NOW</div>
       </a>
 
   
@@ -26,8 +26,8 @@ export default function Home2() {
       <img className="sm:hidden w-[517px]  h-[416px] left-0 top-[57px] absolute rounded-br-[25px]" src="/images/cat-green.png" />
       <a
        href="/discover"
-       className="sm:hidden w-[221px] h-[84px] left-[20px] bottom-[460px] absolute bg-pink-200 rounded-[50px] border-2 border-black max-w-xs transition duration-300 ease-in-out hover:scale-110 focus:bg-green-200 " >
-       <div className=" sm:hidden w-[214px] h-[74px]  text-stone-950 text-[14px] font-light tracking-[8px] flex items-center transition ease-in-out duration-200 justify-center pl-3 pt-2">START NOW</div>
+       className="sm:hidden w-[221px] h-[84px] left-[20px] bottom-[460px] absolute bg-pink-200 rounded-[50px] border-2 border-black max-w-xs transition duration-300 ease-in-out hover:scale-110 focus:bg-purple-700  " >
+       <div className=" sm:hidden w-[214px] h-[74px]  text-stone-950 text-[14px] font-light tracking-[8px] flex items-center transition ease-in-out duration-200 justify-center pl-3 pt-2 focus:text-white">START NOW</div>
       </a>
       <div className="sm:hidden w-[120px] h-[196px] left-[16px] top-[120px] absolute text-black text-2xl font-normal tracking-[12px]">WHISKER</div>
       <div className="sm:hidden w-[200px] h-[70px] left-[20px] top-[135px] absolute text-pink-300 text-4xl font-light tracking-[25px]">_____</div>

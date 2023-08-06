@@ -86,19 +86,29 @@ export default function SingleCard() {
                 </p>
 
 
-                <p className="leading-relaxed mb-3 text-gray-400">
-                  <span className="font-light text-xl text-black">
-                    Last Seen:
-                  </span>{' '}
-                  <Link href={{
+                 <p className="leading-relaxed mb-3 text-gray-400">
+                <span className="font-light text-xl text-black">
+                  Last Seen:
+                </span>{' '}
+                <Link
+                  href={{
                     pathname: '/map',
-                    query: { address: card.address, city: card.city, state: card.state, zip: card.zip, location: card.location } //passes info to the next page
-                  }}> 
-                  <img src="/images/favicon.png" className='w-[30px] mr-2'/>
-                 <h1>View on Map</h1> 
-                  </Link>
-            
-                </p>
+                    query: {
+                      address: card.address,
+                      city: card.city,
+                      state: card.state,
+                      zip: card.zip,
+                      location: card.location,
+                    }, //passes info to the next page
+                  }}
+                >
+              <span className="flex items-center">
+                <h1 className='text-purple-600'>View on Map</h1>
+                <img src="/images/favicon.png" className="w-[30px] mr-2 " />
+                {/* You can adjust the margin (mr-2) to control the spacing between the image and the text */}
+              </span>
+            </Link>
+          </p>
 
 
 

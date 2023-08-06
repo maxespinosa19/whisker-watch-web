@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react'
+import NavBar from '../components/NavBar'
 
 
 export default function Home({searchParams}) {
@@ -24,17 +25,19 @@ export default function Home({searchParams}) {
  
   
   return (
-        <div className="bg-purple-800 w-full h-full">
-          <h1 className="text-green-300 text-4xl pt-5 flex flex-row justify-center">Location Last Seen</h1>
-          <h1 className="flex flex-row justify-center text-6xl text-pink-200">---------------</h1>
-     
-    
+
+        <div className="bg-pink-1 w-full h-full">
+    <NavBar/>
+
+          <h1 className="text-purple-900 font-sans text-5xl pt-[80px]  flex flex-row justify-center">Location Last Seen</h1>
+          <h1 className="flex flex-row justify-center tracking-wide text-7xl text-pink-400">--------------</h1>
+       
     {!location
       ? <>
       </>
       : <iframe
-        width="100%"
-        height="100%"
+        width="95%"
+        height="85%"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
@@ -43,10 +46,12 @@ export default function Home({searchParams}) {
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         src={`https://www.google.com/maps/?q=${location}&output=embed`}
+        className='mx-auto my-5'
       ></iframe>
     }
-        
         </div>
+       
+       
   )
 }
 
