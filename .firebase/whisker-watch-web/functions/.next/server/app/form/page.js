@@ -275,10 +275,10 @@ var jsx_runtime_ = __webpack_require__(6786);
 var react_ = __webpack_require__(8038);
 // EXTERNAL MODULE: ./node_modules/next/navigation.js
 var navigation = __webpack_require__(9483);
-// EXTERNAL MODULE: ./node_modules/firebase/storage/dist/index.mjs + 2 modules
-var dist = __webpack_require__(872);
-// EXTERNAL MODULE: ./node_modules/firebase/app/dist/index.mjs + 1 modules
-var app_dist = __webpack_require__(1909);
+// EXTERNAL MODULE: ./node_modules/firebase/storage/dist/index.mjs + 1 modules
+var dist = __webpack_require__(8120);
+// EXTERNAL MODULE: ./node_modules/firebase/app/dist/index.mjs
+var app_dist = __webpack_require__(1288);
 ;// CONCATENATED MODULE: ./app/components/AddStrayPage.jsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -623,7 +623,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [697,331,500,690,579], () => (__webpack_exec__(3847)));
+var __webpack_exports__ = __webpack_require__.X(0, [697,331,566,690,579], () => (__webpack_exec__(3847)));
 module.exports = __webpack_exports__;
 
 })();

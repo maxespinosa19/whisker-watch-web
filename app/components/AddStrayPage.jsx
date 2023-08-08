@@ -154,12 +154,7 @@ export default function AddAnimalPage() {
                 </div>
               </div>
 
-              {/* <div className="flex flex-col mb-2 pb-3">
-                <div className="relative">
-                  <input type="text" className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#8ae79a] focus:border-transparent" placeholder="Location Last Seen" name="location" />
-                </div>
-              </div> */}
-
+        
               <h2 className="flex flex-row justify-center text-pink-400 font-bold pb-3" >- Location last seen -</h2>
 
               <div className="flex flex-row mb-2 pl-[30px] pb-3 w-3/4 mx-auto ">

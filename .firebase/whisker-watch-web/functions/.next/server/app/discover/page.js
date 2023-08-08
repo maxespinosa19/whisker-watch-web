@@ -332,7 +332,7 @@ function SingleCard() {
         }
     };
     return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-        className: "grid mx-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ",
+        className: "grid mx-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-[150px]",
         children: isLoading ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
             children: [
                 /*#__PURE__*/ jsx_runtime_.jsx(SkeletonCard, {}),
@@ -344,7 +344,7 @@ function SingleCard() {
             ]
         }) : cards.map((card, i)=>/*#__PURE__*/ jsx_runtime_.jsx("section", {
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: "h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px]",
+                    className: "h-[350px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex",
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx("img", {
                             className: "lg:h-full md:h-full md: w-1/2 lg:w-3/4  max-w-[200px] min-w-[200px] object-cover rounded-tl-3xl rounded-bl-3xl",
@@ -433,7 +433,7 @@ function SingleCard() {
 }
 const SkeletonCard = ()=>/*#__PURE__*/ jsx_runtime_.jsx("section", {
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-            className: "h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px] animate-pulse",
+            className: "h-[350px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex  animate-pulse",
             children: [
                 /*#__PURE__*/ jsx_runtime_.jsx("div", {
                     className: "w-3/4 h-full bg-rose-200"

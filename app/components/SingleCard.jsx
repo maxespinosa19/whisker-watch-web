@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function SingleCard() {
-  const [cards, setCards] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Add isLoading state
+  const [cards, setCards] = useState([]); 
+  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     const getSingleCard = async () => {
@@ -12,7 +12,7 @@ export default function SingleCard() {
         const res = await fetch('https://whisker-watch-api.web.app/animalForms');
         const data = await res.json();
         setCards(data);
-        setIsLoading(false); // Set isLoading to false once data is fetched
+        setIsLoading(false); 
         console.log(data);
       } catch (err) {
         console.error(err);
@@ -45,7 +45,7 @@ export default function SingleCard() {
   
 
   return (
-    <div className="grid mx-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
+    <div className="grid mx-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-[150px]">
       {isLoading ? ( 
         <>
           <SkeletonCard />  
@@ -57,8 +57,8 @@ export default function SingleCard() {
         </>
       ) : (
         cards.map((card, i) => (
-          <section key={`single-card-${i}`}>
-            <div className="h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px]">
+          <section  key={`single-card-${i}`}>
+            <div className="h-[350px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex">
               <img
                 className="lg:h-full md:h-full md: w-1/2 lg:w-3/4  max-w-[200px] min-w-[200px] object-cover rounded-tl-3xl rounded-bl-3xl"
                 src={
@@ -132,7 +132,7 @@ export default function SingleCard() {
 
 const SkeletonCard = () => (
   <section>
-    <div className="h-[300px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex mt-[150px] animate-pulse">
+    <div className="h-[350px] rounded-3xl w-full  mx-auto overflow-hidden shadow-md flex  animate-pulse">
       <div className="w-3/4 h-full bg-rose-200"></div>
       <div className="bg-white w-full bg-opacity-50 p-4 sm:p-6">
         <div className="w-1/2 h-4 bg-green-200 mb-4"></div>

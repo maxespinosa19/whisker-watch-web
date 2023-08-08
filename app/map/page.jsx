@@ -8,6 +8,7 @@ export default function Home({searchParams}) {
   console.log(data)
   const [location, setLocation] = useState(data?.location || "")
 
+
   useEffect(() => { 
     if (location) return
 
@@ -27,7 +28,7 @@ export default function Home({searchParams}) {
   return (
 
         <div className="bg-pink-1 w-full h-full">
-    <NavBar/>
+          <NavBar/>
 
           <h1 className="text-purple-900 font-sans text-5xl pt-[80px]  flex flex-row justify-center">Location Last Seen</h1>
           <h1 className="flex flex-row justify-center tracking-wide text-7xl text-pink-400">--------------</h1>
